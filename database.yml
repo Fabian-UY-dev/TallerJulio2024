@@ -1,0 +1,20 @@
+---
+
+  - name: Creo la base de datos todo
+    community.mysql.mysql_db:
+      check_implicit_admin: true
+      login_host: "{{ hostvars[inventory_hostname].ansible_host }}"
+      login_user: root
+      login_password: dbadmin
+      name: todo
+      state: import
+      target: ./files/todo.sql
+    delegate_to: localhost
+    connection: local
+
+    handlers:
+
+  - name: Restart mariadb
+    ansible.builtin.systemd_service: 
+    name: mariadb
+    state: restarted
