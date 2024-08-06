@@ -1,0 +1,31 @@
+---
+- hosts: ubuntu1
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Ensure Python 3 and pip3 are installed
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - python3
+        - python3-pip
+
+    - name: Ensure MySQL Python library is installed
+      pip:
+        name: mysqlclient or PyMySQL
+        executable: pip3
+
+   ## - name: Copy the SQL file to the remote server
+     ## copy:
+       ## src: files/todo.sql
+        ##dest: /tmp/todo.sql
+
+    ##- name: Import the SQL file into MariaDB
+      ##mysql_db:
+        ##name: your_database
+        ##state: import
+        ##target: /tmp/todo.sql
+        ##login_user: root
+        ##login_password: your_password

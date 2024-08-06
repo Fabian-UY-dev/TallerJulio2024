@@ -5,6 +5,11 @@
   user: sysadmin
 
   tasks:
+  
+  - name: Instalar tar
+    ansible.builtin.dnf:
+      name: tar
+      state: present
 
   - name: Instalar apache
     ansible.builtin.dnf:
@@ -49,5 +54,3 @@
     ansible.builtin.systemd_service:
       name: httpd
       state: restarted
-
-  
