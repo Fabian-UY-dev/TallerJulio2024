@@ -24,7 +24,7 @@
       owner: apache
       group: apache
 
-  - name: Copy file with owner and permissions TODO
+  - name: Copia del archivo todo.war
     ansible.builtin.copy:
      src: /home/sysadmin/todo.war
      dest: /opt/tomcat/webapps/
@@ -32,7 +32,7 @@
      group: apache
      mode: '0755'
 
-  - name: Crear directorio config
+  - name: Creación del directorio config
     ansible.builtin.file:
       path: /opt/config
       state: directory
@@ -40,7 +40,7 @@
       owner: apache
       group: apache
 
-  - name: Copy file with owner and permissions APP.PROPERTIES
+  - name: Copia del archivo app.properties
     ansible.builtin.copy:
      src: /home/sysadmin/app.properties
      dest: /opt/config/

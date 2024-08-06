@@ -1,12 +1,12 @@
 ---
-- name: Hardening de servidores centos
+- name: Hardening de servidores Centos
   hosts: centos
   become: true
   user: sysadmin
 
   tasks:
 
-    - name: Configuro opciones de seguridad de ssh
+    - name: Configuración de opciones de seguridad de SSH
       ansible.builtin.lineinfile: 
         path: /etc/ssh/sshd_config
         regexp: '^#PermitRootLogin'
@@ -16,7 +16,7 @@
 
   handlers:
 
-  - name: Reinicio servidor ssh
+  - name: Reinicio servidor SSH
     ansible.builtin.systemd_service:
       name: "sshd"
       state: restarted
