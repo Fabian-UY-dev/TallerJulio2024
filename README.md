@@ -15,6 +15,9 @@ Se necesitan instalar las siguientes colleciones para los playbooks
 Para instalarla se debe revisar la documentación de ansible y remplazar los terminos mynamespace y mycollection
 
 ansible-galaxy collection install my_namespace.my_collection
+## Requermientos (POST-ENTREGA)
+
+
 
 ## Verificación de playbooks
 
