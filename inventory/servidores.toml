@@ -1,14 +1,14 @@
 [centos]
-#centos1 ansible_host=192.168.56.22
-centos2 ansible_host=192.168.56.30
+centos1 ansible_host=192.168.56.22
+centos3 ansible_host=192.168.56.40
 
 [ubuntu]
-#ubuntu1 ansible_host=192.168.56.21
-ubuntu2 ansible_host=192.168.56.31
+ubuntu1 ansible_host=192.168.56.21
+ubuntu3  ansible_host=192.168.56.41
 
 [database]
 ubuntu1
-ubuntu2
+ubuntu3
 
 [linux:children]
 centos
