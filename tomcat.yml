@@ -10,6 +10,11 @@
     ansible.builtin.dnf:
       name: tar
       state: present
+
+  - name: Instalar JAVA
+    ansible.builtin.dnf:
+      name: java-11-openjdk
+      state: present
     
   - name: Descargo el paquete tomcat
     ansible.builtin.uri: 
@@ -32,3 +37,19 @@
       dest: /opt/tomcat
       state: link
       force: true
+
+
+  - name: Copia del archivo tomcat
+    ansible.builtin.copy:
+      src: ./files/tomcat.service
+      dest: /etc/systemd/system/
+      owner: root
+      group: root
+      mode: '0755'
+
+      
+  handlers:
+
+  - name: Reinicar systemctl
+    ansible.builtin.systemd_service:
+     daemon_reload: true      

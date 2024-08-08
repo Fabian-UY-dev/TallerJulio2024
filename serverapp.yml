@@ -26,7 +26,7 @@
 
   - name: Copia del archivo todo.war
     ansible.builtin.copy:
-     src: /home/sysadmin/todo.war
+     src: ./files/todo.war
      dest: /opt/tomcat/webapps/
      owner: apache
      group: apache
@@ -42,7 +42,7 @@
 
   - name: Copia del archivo app.properties
     ansible.builtin.copy:
-     src: /home/sysadmin/app.properties
+     src: ./files/app.properties
      dest: /opt/config/
      owner: apache
      group: apache
@@ -82,4 +82,4 @@
   - name: Reiniciar tomcat
     ansible.builtin.systemd_service:
       name: tomcat
-      state: restarted
+      state: reloaded
